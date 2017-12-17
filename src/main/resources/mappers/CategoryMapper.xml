@@ -26,7 +26,7 @@
 		delete from mmall_category
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.mmall.pojo.Category">
+	<insert id="insert" parameterType="com.learing.pojo.Category">
 		insert into mmall_category (id, parent_id, name,
 		status, sort_order, create_time,
 		update_time)
@@ -35,7 +35,7 @@
 		#{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
 		now())
 	</insert>
-	<insert id="insertSelective" parameterType="com.mmall.pojo.Category">
+	<insert id="insertSelective" parameterType="com.learing.pojo.Category">
 		insert into mmall_category
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -84,7 +84,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.Category">
+	<update id="updateByPrimaryKeySelective" parameterType="com.learing.pojo.Category">
 		update mmall_category
 		<set>
 			<if test="parentId != null">
@@ -108,7 +108,7 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.mmall.pojo.Category">
+	<update id="updateByPrimaryKey" parameterType="com.learing.pojo.Category">
 		update mmall_category
 		set parent_id = #{parentId,jdbcType=INTEGER},
 		name = #{name,jdbcType=VARCHAR},
