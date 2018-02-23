@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.learing.dao.OrderMapper" >
-  <resultMap id="BaseResultMap" type="com.learing.pojo.Order" >
+<mapper namespace="com.learning.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.learning.pojo.Order" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="order_no" jdbcType="BIGINT" javaType="java.lang.Long" />
@@ -26,15 +26,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from mmall_order
+    from learning_order
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from mmall_order
+    delete from learning_order
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.learing.pojo.Order" >
-    insert into mmall_order (id, order_no, user_id, 
+  <insert id="insert" parameterType="com.learning.pojo.Order" >
+    insert into learning_order (id, order_no, user_id, 
       shipping_id, payment, payment_type, 
       postage, status, payment_time, 
       send_time, end_time, close_time, 
@@ -45,8 +45,8 @@
       #{sendTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, 
       now(), now())
   </insert>
-  <insert id="insertSelective" parameterType="com.learing.pojo.Order" >
-    insert into mmall_order
+  <insert id="insertSelective" parameterType="com.learning.pojo.Order" >
+    insert into learning_order
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -136,8 +136,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.learing.pojo.Order" >
-    update mmall_order
+  <update id="updateByPrimaryKeySelective" parameterType="com.learning.pojo.Order" >
+    update learning_order
     <set >
       <if test="orderNo != null" >
         order_no = #{orderNo,jdbcType=BIGINT},
@@ -181,8 +181,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.learing.pojo.Order" >
-    update mmall_order
+  <update id="updateByPrimaryKey" parameterType="com.learning.pojo.Order" >
+    update learning_order
     set order_no = #{orderNo,jdbcType=BIGINT},
       user_id = #{userId,jdbcType=INTEGER},
       shipping_id = #{shippingId,jdbcType=INTEGER},
@@ -203,7 +203,7 @@
   <select id="selectByUserIdAndOrderNo" resultMap="BaseResultMap" parameterType="map">
     SELECT
     <include refid="Base_Column_List"></include>
-    from mmall_order
+    from learning_order
     where order_no = #{orderNo}
     and user_id = #{userId}
   </select>
@@ -213,7 +213,7 @@
     SELECT
     <include refid="Base_Column_List">
     </include>
-    FROM  mmall_order
+    FROM  learning_order
     where order_no = #{orderNo}
   </select>
 
@@ -222,7 +222,7 @@
   <select id="selectByUserId" resultMap="BaseResultMap" parameterType="int">
     SELECT
       <include refid="Base_Column_List"/>
-    from mmall_order
+    from learning_order
     where user_id = #{userId}
     order by create_time desc
   </select>
@@ -232,7 +232,7 @@
   <select id="selectAllOrder" resultMap="BaseResultMap">
     SELECT
     <include refid="Base_Column_List"/>
-    from mmall_order
+    from learning_order
     ORDER BY  create_time desc
   </select>
 

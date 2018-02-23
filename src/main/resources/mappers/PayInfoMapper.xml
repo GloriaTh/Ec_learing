@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.learing.dao.PayInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.learing.pojo.PayInfo" >
+<mapper namespace="com.learning.dao.PayInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.learning.pojo.PayInfo" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -20,23 +20,23 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from mmall_pay_info
+    from learning_pay_info
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from mmall_pay_info
+    delete from learning_pay_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.learing.pojo.PayInfo" >
-    insert into mmall_pay_info (id, user_id, order_no, 
+  <insert id="insert" parameterType="com.learning.pojo.PayInfo" >
+    insert into learning_pay_info (id, user_id, order_no, 
       pay_platform, platform_number, platform_status, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{orderNo,jdbcType=BIGINT}, 
       #{payPlatform,jdbcType=INTEGER}, #{platformNumber,jdbcType=VARCHAR}, #{platformStatus,jdbcType=VARCHAR}, 
       now(), now())
   </insert>
-  <insert id="insertSelective" parameterType="com.learing.pojo.PayInfo" >
-    insert into mmall_pay_info
+  <insert id="insertSelective" parameterType="com.learning.pojo.PayInfo" >
+    insert into learning_pay_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -90,8 +90,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.learing.pojo.PayInfo" >
-    update mmall_pay_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.learning.pojo.PayInfo" >
+    update learning_pay_info
     <set >
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
@@ -117,8 +117,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.learing.pojo.PayInfo" >
-    update mmall_pay_info
+  <update id="updateByPrimaryKey" parameterType="com.learning.pojo.PayInfo" >
+    update learning_pay_info
     set user_id = #{userId,jdbcType=INTEGER},
       order_no = #{orderNo,jdbcType=BIGINT},
       pay_platform = #{payPlatform,jdbcType=INTEGER},

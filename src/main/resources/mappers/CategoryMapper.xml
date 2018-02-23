@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.learing.dao.CategoryMapper">
-	<resultMap id="BaseResultMap" type="com.learing.pojo.Category">
+<mapper namespace="com.learning.dao.CategoryMapper">
+	<resultMap id="BaseResultMap" type="com.learning.pojo.Category">
 		<constructor>
 			<idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
 			<arg column="parent_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -19,15 +19,15 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from mmall_category
+		from learning_category
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from mmall_category
+		delete from learning_category
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.learing.pojo.Category">
-		insert into mmall_category (id, parent_id, name,
+	<insert id="insert" parameterType="com.learning.pojo.Category">
+		insert into learning_category (id, parent_id, name,
 		status, sort_order, create_time,
 		update_time)
 		values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER},
@@ -35,8 +35,8 @@
 		#{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
 		now())
 	</insert>
-	<insert id="insertSelective" parameterType="com.learing.pojo.Category">
-		insert into mmall_category
+	<insert id="insertSelective" parameterType="com.learning.pojo.Category">
+		insert into learning_category
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -84,8 +84,8 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.learing.pojo.Category">
-		update mmall_category
+	<update id="updateByPrimaryKeySelective" parameterType="com.learning.pojo.Category">
+		update learning_category
 		<set>
 			<if test="parentId != null">
 				parent_id = #{parentId,jdbcType=INTEGER},
@@ -108,8 +108,8 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.learing.pojo.Category">
-		update mmall_category
+	<update id="updateByPrimaryKey" parameterType="com.learning.pojo.Category">
+		update learning_category
 		set parent_id = #{parentId,jdbcType=INTEGER},
 		name = #{name,jdbcType=VARCHAR},
 		status = #{status,jdbcType=BIT},
@@ -123,7 +123,7 @@
 		parameterType="int">
 		select
 		<include refid="Base_Column_List" />
-		from mmall_category
+		from learning_category
 		where parent_id = #{parentId}
 	</select>
 

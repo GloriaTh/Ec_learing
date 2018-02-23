@@ -10,12 +10,12 @@
 		</filter>
 	</appender>
 
-	<appender name="learing"
+	<appender name="learning"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<!--<File>d:/mmalllog/mmall.log</File> -->
-		<File>F:/apache-tomcat-6.0.41/logs/learing.log</File>
+		<!--<File>d:/learninglog/learning.log</File> -->
+		<File>F:/apache-tomcat-6.0.41/logs/learning.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>F:/apache-tomcat-6.0.41/logs/learing.log.%d{yyyy-MM-dd}.gz
+			<fileNamePattern>F:/apache-tomcat-6.0.41/logs/learning.log.%d{yyyy-MM-dd}.gz
 			</fileNamePattern>
 			<append>true</append>
 			<maxHistory>10</maxHistory>
@@ -28,12 +28,12 @@
 
 	<appender name="error"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<!--<File>d:/mmalllog/error.log</File> -->
+		<!--<File>d:/learninglog/error.log</File> -->
 		<File>F:/apache-tomcat-6.0.41/logs/error.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>F:/apache-tomcat-6.0.41/logs/error.log.%d{yyyy-MM-dd}.gz
 			</fileNamePattern>
-			<!--<fileNamePattern>d:/mmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern> -->
+			<!--<fileNamePattern>d:/learninglog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern> -->
 			<append>true</append>
 			<maxHistory>10</maxHistory>
 		</rollingPolicy>
@@ -47,8 +47,8 @@
 		</filter>
 	</appender>
 
-	<logger name="com.learing" additivity="false" level="INFO">
-		<appender-ref ref="learing" />
+	<logger name="com.learning" additivity="false" level="INFO">
+		<appender-ref ref="learning" />
 		<appender-ref ref="console" />
 	</logger>
 
@@ -56,7 +56,7 @@
 
 	<!-- geelynote mybatis log 日志 -->
 
-	<logger name="com.learing.dao" level="DEBUG" />
+	<logger name="com.learning.dao" level="DEBUG" />
 
 	<!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" 
 		> -->
